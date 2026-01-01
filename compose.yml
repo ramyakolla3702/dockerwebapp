@@ -5,10 +5,18 @@ services:
    image: ramyakolla3702/dockerwebapp:dbimage
    ports:
      - "3306:3306"
+   deploy:
+       replicas: 3
+
+
 
  application:
    image: ramyakolla3702/dockerwebapp:appimage
    ports:
      - "1111:8080"
+   deploy:
+      replicas: 2
+
+
    depends_on:
      - "devopsdb"
